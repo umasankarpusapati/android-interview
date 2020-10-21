@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/flow_fragment">
+	<fragment
+		android:id="@+id/flow_fragment"
+		android:name="com.png.tutorialproject.ui.examples.flow.FlowFragment"
+		android:label="@string/flow_title"
+		tools:layout="@layout/fragment_flow" />
+	<fragment
+		android:id="@+id/livedata_fragment"
+		android:name="com.png.tutorialproject.ui.examples.livedata.LiveDataFragment"
+		android:label="@string/livedata_title"
+		tools:layout="@layout/fragment_livedata" />
+	<fragment
+		android:id="@+id/room_fragment"
+		android:name="com.png.tutorialproject.ui.examples.room.RoomFragment"
+		android:label="@string/room_title"
+		tools:layout="@layout/fragment_room" />
+</navigation>

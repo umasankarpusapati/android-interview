@@ -1,0 +1,10 @@
+project.ext {
+    compile_sdk_version = 28
+    min_support_version = 21
+    build_tools_version = '28.0.3'
+
+    // Dependency Versions
+    nav_version = "2.1.0-alpha06"
+    kotlin_version = '1.3.50'
+}
+
