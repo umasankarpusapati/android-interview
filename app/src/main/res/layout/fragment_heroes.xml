@@ -3,11 +3,11 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".ui.examples.livedata.LiveDataFragment">
+	tools:context=".ui.heroes.HeroesFragment">
 
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:textSize="26sp"
-		android:text="LiveData Fragment" />
+		android:text="Heroes Fragment" />
 </FrameLayout>

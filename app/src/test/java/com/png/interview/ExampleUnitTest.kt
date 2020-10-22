@@ -1,4 +1,4 @@
-package com.png.tutorialproject
+package com.png.interview
 
 import org.junit.Test
 

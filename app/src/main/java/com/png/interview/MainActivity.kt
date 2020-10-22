@@ -1,4 +1,4 @@
-package com.png.tutorialproject
+package com.png.interview
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +12,9 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         val topLevelDestinations = setOf(
-            R.id.flow_fragment,
-            R.id.room_fragment,
-            R.id.livedata_fragment
+            R.id.heroes_fragment,
+            R.id.maps_fragment,
+            R.id.about_fragment
         )
     }
 
