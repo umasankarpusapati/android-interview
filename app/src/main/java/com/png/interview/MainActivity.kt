@@ -6,9 +6,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.png.interview.ui.InjectedActivity
 import kotlinx.android.synthetic.main.activity_main.bottom_nav
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : InjectedActivity() {
 
     companion object {
         val topLevelDestinations = setOf(
