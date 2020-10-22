@@ -1,6 +1,14 @@
 <resources>
-	<string name="app_name">Tutorial Project</string>
-	<string name="flow_title">Flow</string>
-	<string name="room_title">Room</string>
-	<string name="livedata_title">Livedata</string>
+	<string name="app_name">Interview Project</string>
+	<string name="heroes_title">Heroes</string>
+	<string name="maps_title">Maps</string>
+	<string name="about_title">About</string>
+	<string name="network_error">Network Error</string>
+	<string name="network_error_retry">Please reconnect to the internet and try again.</string>
+	<string name="unexpected_error_occurred_body">An error has occurred during your operation, please contact support.</string>
+	<string name="alert_error_title">Something went wrong!</string>
+	<string name="alert_error_title_relaxed">Something went wrong.</string>
+	<string name="please_try_again">Please try again</string>
+	<string name="ok">OK</string>
+
 </resources>

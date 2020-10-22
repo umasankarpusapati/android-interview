@@ -2,20 +2,20 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/nav_graph"
-	app:startDestination="@id/flow_fragment">
+	app:startDestination="@id/heroes_fragment">
 	<fragment
-		android:id="@+id/flow_fragment"
-		android:name="com.png.tutorialproject.ui.examples.flow.FlowFragment"
-		android:label="@string/flow_title"
-		tools:layout="@layout/fragment_flow" />
+		android:id="@+id/heroes_fragment"
+		android:name="com.png.interview.ui.heroes.HeroesFragment"
+		android:label="@string/heroes_title"
+		tools:layout="@layout/fragment_heroes" />
 	<fragment
-		android:id="@+id/livedata_fragment"
-		android:name="com.png.tutorialproject.ui.examples.livedata.LiveDataFragment"
-		android:label="@string/livedata_title"
-		tools:layout="@layout/fragment_livedata" />
+		android:id="@+id/maps_fragment"
+		android:name="com.png.interview.ui.maps.MapsFragment"
+		android:label="@string/maps_title"
+		tools:layout="@layout/fragment_maps" />
 	<fragment
-		android:id="@+id/room_fragment"
-		android:name="com.png.tutorialproject.ui.examples.room.RoomFragment"
-		android:label="@string/room_title"
-		tools:layout="@layout/fragment_room" />
+		android:id="@+id/about_fragment"
+		android:name="com.png.interview.ui.about.AboutFragment"
+		android:label="@string/about_title"
+		tools:layout="@layout/fragment_about" />
 </navigation>
