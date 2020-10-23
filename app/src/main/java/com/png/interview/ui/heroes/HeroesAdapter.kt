@@ -25,11 +25,8 @@ class HeroesAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataboundViewHolder<ViewDataBinding> {
         return DataboundViewHolder(
-            when (viewType) {
-                TYPE_HERO -> ViewHeroItemBinding.inflate(parent.getLayoutInflater(), parent, false).apply {
-                    presenter = presenters.get()
-                }
-                else -> throw IllegalStateException("Unknown type $viewType")
+            ViewHeroItemBinding.inflate(parent.getLayoutInflater(), parent, false).apply {
+                presenter = presenters.get()
             }
         )
     }
@@ -43,22 +40,12 @@ class HeroesAdapter
         holder.binding.invalidateAll()
     }
 
-    override fun getItemViewType(position: Int) =
-        when (data[position]) {
-            is HeroAdapterItem.HeroItem -> TYPE_HERO
-        }
-
     fun bindData(heroes: List<Hero>) {
-        this.data =
-            heroes.map { HeroAdapterItem.HeroItem(it) }
+        this.data = heroes.map { HeroAdapterItem.HeroItem(it) }
         notifyDataSetChanged()
     }
 
     sealed class HeroAdapterItem {
         data class HeroItem(val hero: Hero) : HeroAdapterItem()
-    }
-
-    companion object {
-        private const val TYPE_HERO = 1
     }
 }
