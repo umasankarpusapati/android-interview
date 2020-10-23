@@ -11,11 +11,11 @@ data class Hero(
     val name: String?,
     val release_date: String?,
     val release_patch: String?,
-    val role: String?,
+    val role: HeroRole?,
     val short_name: String?,
     val talents: List<Talent>?,
     val translations: List<String>?,
-    val type: String?
+    val type: HeroType?
 )
 
 data class Ability(
@@ -50,3 +50,16 @@ data class IconUrl(
     @Json(name = "66x66")
     val smallUrl: String?
 )
+
+enum class HeroRole {
+    @Json(name = "Warrior") WARRIOR,
+    @Json(name = "Support") SUPPORT,
+    @Json(name = "Specialist") SPECIALIST,
+    @Json(name = "Assassin") ASSASSIN,
+    @Json(name = "Multiclass") MULTICLASS
+}
+
+enum class HeroType {
+    @Json(name = "Melee") MELEE,
+    @Json(name = "Ranged") RANGED
+}
