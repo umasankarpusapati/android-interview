@@ -44,5 +44,9 @@ data class Talent(
 )
 
 data class IconUrl(
-    @Json(name = "66x66") val url: String?
+    @Json(name = "92x93")
+    val bigUrl: String?,
+
+    @Json(name = "66x66")
+    val smallUrl: String?
 )

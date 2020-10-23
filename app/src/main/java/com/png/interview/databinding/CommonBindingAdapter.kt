@@ -1,5 +1,6 @@
 package com.png.interview.databinding
 
+import android.graphics.drawable.Drawable
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
@@ -8,9 +9,11 @@ import android.view.Gravity
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
+import coil.load
 import com.png.interview.extensions.NoUnderlineURLSpan
 
 object CommonBindingAdapter {
@@ -42,6 +45,18 @@ object CommonBindingAdapter {
             Gravity.START
         } else {
             Gravity.CENTER
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter(value =["coilSrc", "coilPlaceholder"], requireAll = false)
+    fun setImageFromCoil(view: ImageView, imageUrl: String?, placeholder: Drawable?) {
+        if (imageUrl != null) {
+            view
+                .load(imageUrl) {
+                    placeholder(placeholder)
+                    error(placeholder)
+            }
         }
     }
 }
