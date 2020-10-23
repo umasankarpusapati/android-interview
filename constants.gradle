@@ -1,7 +1,7 @@
 project.ext {
-    compile_sdk_version = 28
-    min_support_version = 21
-    build_tools_version = '28.0.3'
+    compile_sdk_version = 29
+    min_sdk_version = 21
+    target_sdk_version = 29
 
     // Dependency Versions
     androidx_appcompat_version = '1.2.0-rc01'
@@ -11,8 +11,9 @@ project.ext {
     androidx_lifecycle_version = '2.1.0'
     androidx_preference_version = '1.1.1'
     androidx_recyclerview_version = '1.1.0'
+    coil_version = '1.0.0-rc3'
     dagger_version = '2.24'
-    kotlin_version = '1.3.72'
+    kotlin_version = '1.4.10'
     nav_version = "2.3.1"
 
     okhttp_version = '4.7.2'
