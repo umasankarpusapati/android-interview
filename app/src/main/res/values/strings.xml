@@ -10,5 +10,6 @@
 	<string name="alert_error_title_relaxed">Something went wrong.</string>
 	<string name="please_try_again">Please try again</string>
 	<string name="ok">OK</string>
-
+	<string name="about_fragment">About Fragment</string>
+	<string name="about_content">Insert some text about the app eventually</string>
 </resources>

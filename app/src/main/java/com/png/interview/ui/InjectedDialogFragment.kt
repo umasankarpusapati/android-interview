@@ -13,7 +13,6 @@ abstract class InjectedDialogFragment : DialogFragment() {
 
     lateinit var fragmentComponent: FragmentComponent
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentComponent = (requireActivity() as InjectedActivity)

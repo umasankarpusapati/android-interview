@@ -18,7 +18,6 @@ abstract class InjectedFragment : Fragment() {
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var fragmentComponent: FragmentComponent
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentComponent = (context as InjectedActivity)
