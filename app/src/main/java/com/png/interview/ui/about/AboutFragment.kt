@@ -1,32 +1,29 @@
 package com.png.interview.ui.about
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.png.interview.databinding.FragmentAboutBinding
+import com.png.interview.ui.heroes.HeroesFragment
+import javax.inject.Inject
 
-import com.png.interview.R
+class AboutFragment() : Fragment() {
 
-class AboutFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = AboutFragment()
-    }
-
-    private lateinit var viewModel: AboutViewModel
+    @Inject lateinit var presenter: AboutPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_about, container, false)
+        super.onCreateView(inflater, container, savedInstanceState)
+        val binding = FragmentAboutBinding.inflate(inflater, container, false)
+        binding.presenter = presenter
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AboutViewModel::class.java)
+    companion object {
+        fun newInstance() = HeroesFragment()
     }
-
 }

@@ -17,10 +17,6 @@ import javax.inject.Inject
 
 class HeroesFragment : InjectedFragment() {
 
-    companion object {
-        fun newInstance() = HeroesFragment()
-    }
-
     @Inject lateinit var presenter: HeroesPresenter
 
     override fun onAttach(context: Context) {
@@ -46,6 +42,10 @@ class HeroesFragment : InjectedFragment() {
             }
         }
         return binding.root
+    }
+
+    companion object {
+        fun newInstance() = HeroesFragment()
     }
 
 }

@@ -18,8 +18,6 @@ import kotlinx.coroutines.FlowPreview
 interface FragmentComponent {
     fun inject(heroesFragment: HeroesFragment)
     fun inject(mapsFragment: MapsFragment)
-    fun inject(aboutFragment: AboutFragment)
     fun inject(injectedFragment: InjectedFragment)
     fun inject(injectedDialogFragment: InjectedDialogFragment)
-
 }
