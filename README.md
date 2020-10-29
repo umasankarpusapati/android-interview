@@ -11,7 +11,7 @@ This is a simple app, that is largely based on an architecture similar to our pr
 
     1.  Use view_support_hero_item.xml as a baseline to create Warrior layout
 
-    2.  The Tank layout's hero_name textView should have a background color of #800000
+    2.  The Warrior layout's hero_name textView should have a background color of #800000
 
 3.  Clicking on a Hero in the Hero tab should take the user to the Hero details
 
