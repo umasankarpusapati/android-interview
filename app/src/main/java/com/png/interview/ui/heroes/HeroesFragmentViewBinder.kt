@@ -1,8 +1,6 @@
-package com.png.interview.ui.about
+package com.png.interview.ui.heroes
 
-import android.content.res.Resources
 import androidx.databinding.BaseObservable
-import com.png.interview.R
 import com.png.interview.api.models.heroes.Hero
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -10,11 +8,11 @@ import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class AboutPresenter
+class HeroesFragmentViewBinder
 @Inject constructor(
-    val resources: Resources
+    val adapter: HeroesAdapter
 ) : BaseObservable() {
-
-    val aboutText = resources.getString(R.string.about_content)
-
+    fun bind(it: List<Hero>) {
+        adapter.bindData(it)
+    }
 }

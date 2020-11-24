@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class AlertDialogPresenter
+class AlertDialogViewBinder
 @Inject constructor(
     private val dialogFragment: DialogFragment
 ) {

@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class HeroHeaderItemPresenter
+class DetailedHeroItemViewBinder
 @Inject constructor(
     private val activity: AppCompatActivity
 ) {

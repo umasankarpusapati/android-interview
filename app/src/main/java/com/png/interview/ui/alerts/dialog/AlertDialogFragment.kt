@@ -24,7 +24,7 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 class AlertDialogHTMLFragment : InjectedDialogFragment() {
 
-    @Inject lateinit var dialogPresenter: AlertDialogPresenter
+    @Inject lateinit var dialogViewBinder: AlertDialogViewBinder
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,9 +34,9 @@ class AlertDialogHTMLFragment : InjectedDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val binding = DialogAlertBinding.inflate(inflater, container, false)
-        binding.presenter = dialogPresenter
+        binding.viewBinder = dialogViewBinder
         binding.lifecycleOwner = viewLifecycleOwner
-        dialogPresenter.bind(getParcelable())
+        dialogViewBinder.bind(getParcelable())
         isCancelable = getParcelable<AlertDialogData>().isCancelable
         return binding.root
     }
@@ -48,7 +48,7 @@ class AlertDialogHTMLFragment : InjectedDialogFragment() {
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        dialogPresenter.onDismissed()
+        dialogViewBinder.onDismissed()
     }
 
     companion object {

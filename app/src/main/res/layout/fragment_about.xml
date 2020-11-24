@@ -6,8 +6,8 @@
 	<data>
 
 		<variable
-			name="presenter"
-			type="com.png.interview.ui.about.AboutPresenter" />
+			name="viewBinder"
+			type="com.png.interview.ui.about.AboutViewBinder" />
 	</data>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,7 @@
 			android:id="@+id/about_text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@{presenter.aboutText}"
+			android:text="@{viewBinder.aboutText}"
 			android:textSize="18sp"
 			app:layout_constraintTop_toBottomOf="@id/about_title" />
 	</androidx.constraintlayout.widget.ConstraintLayout>

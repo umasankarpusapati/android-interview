@@ -6,8 +6,8 @@
 	<data>
 
 		<variable
-			name="presenter"
-			type="com.png.interview.ui.alerts.dialog.AlertDialogPresenter" />
+			name="viewBinder"
+			type="com.png.interview.ui.alerts.dialog.AlertDialogViewBinder" />
 	</data>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,7 @@
 			android:layout_marginStart="40dp"
 			android:layout_marginTop="48dp"
 			android:layout_marginEnd="40dp"
-			android:text="@{presenter.title}"
+			android:text="@{viewBinder.title}"
 			android:textAlignment="center"
 			app:layout_constraintBottom_toTopOf="@id/alert_content"
 			app:layout_constraintEnd_toEndOf="parent"
@@ -39,12 +39,12 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="16dp"
-			android:onClick="@{() -> presenter.closeClicked()}"
+			android:onClick="@{() -> viewBinder.closeClicked()}"
 			android:src="@drawable/ic_close_gray_24dp"
 			app:layout_constraintBottom_toTopOf="@id/alert_title"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
-			app:visible="@{presenter.cancelable}" />
+			app:visible="@{viewBinder.cancelable}" />
 
 		<TextView
 			style="@style/AlertDialogContentText"
@@ -54,12 +54,12 @@
 			android:layout_marginStart="40dp"
 			android:layout_marginTop="16dp"
 			android:layout_marginEnd="40dp"
-			app:isStartGravity="@{presenter.isContentStartAligned}"
+			app:isStartGravity="@{viewBinder.isContentStartAligned}"
 			app:layout_constraintBottom_toTopOf="@id/layout_buttons_vertical"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@id/alert_title"
-			app:renderHtml="@{presenter.content}" />
+			app:renderHtml="@{viewBinder.content}" />
 
 
 		<LinearLayout
@@ -68,7 +68,7 @@
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
 			android:layout_marginTop="16dp"
-			app:visible="@{!presenter.buttonsHorizontal}"
+			app:visible="@{!viewBinder.buttonsHorizontal}"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@id/alert_content"
@@ -79,9 +79,9 @@
 				android:id="@+id/alert_neutral_button_vertical"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:onClick="@{() -> presenter.neutralButtonClicked()}"
-				android:text="@{presenter.getNeutralButtonText}"
-				app:visible="@{presenter.neutralButtonVisible}"
+				android:onClick="@{() -> viewBinder.neutralButtonClicked()}"
+				android:text="@{viewBinder.getNeutralButtonText}"
+				app:visible="@{viewBinder.neutralButtonVisible}"
 				tools:text="Neutral Button" />
 
 			<Button
@@ -89,9 +89,9 @@
 				android:id="@+id/alert_negative_button_vertical"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:onClick="@{() -> presenter.negativeButtonClicked()}"
-				android:text="@{presenter.negativeButtonText}"
-				app:visible="@{presenter.negativeButtonVisible}"
+				android:onClick="@{() -> viewBinder.negativeButtonClicked()}"
+				android:text="@{viewBinder.negativeButtonText}"
+				app:visible="@{viewBinder.negativeButtonVisible}"
 				tools:text="Negative Button" />
 
 			<Button
@@ -99,9 +99,9 @@
 				android:id="@+id/alert_positive_button_vertical"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:onClick="@{() -> presenter.positiveButtonClicked()}"
-				android:text="@{presenter.positiveButtonText}"
-				app:visible="@{presenter.positiveButtonVisible}"
+				android:onClick="@{() -> viewBinder.positiveButtonClicked()}"
+				android:text="@{viewBinder.positiveButtonText}"
+				app:visible="@{viewBinder.positiveButtonVisible}"
 				tools:text="Positive Button" />
 		</LinearLayout>
 
@@ -110,7 +110,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="horizontal"
-			app:visible="@{presenter.buttonsHorizontal}"
+			app:visible="@{viewBinder.buttonsHorizontal}"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@id/layout_buttons_vertical">
@@ -122,9 +122,9 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:layout_marginEnd="8dp"
-				android:onClick="@{() -> presenter.neutralButtonClicked()}"
-				android:text="@{presenter.getNeutralButtonText}"
-				app:visible="@{presenter.neutralButtonVisible}"
+				android:onClick="@{() -> viewBinder.neutralButtonClicked()}"
+				android:text="@{viewBinder.getNeutralButtonText}"
+				app:visible="@{viewBinder.neutralButtonVisible}"
 				tools:text="Neutral Button" />
 
 			<Button
@@ -134,9 +134,9 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
 				android:layout_marginEnd="8dp"
-				android:onClick="@{() -> presenter.negativeButtonClicked()}"
-				android:text="@{presenter.negativeButtonText}"
-				app:visible="@{presenter.negativeButtonVisible}"
+				android:onClick="@{() -> viewBinder.negativeButtonClicked()}"
+				android:text="@{viewBinder.negativeButtonText}"
+				app:visible="@{viewBinder.negativeButtonVisible}"
 				tools:text="Negative Button" />
 
 			<Button
@@ -145,9 +145,9 @@
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:onClick="@{() -> presenter.positiveButtonClicked()}"
-				android:text="@{presenter.positiveButtonText}"
-				app:visible="@{presenter.positiveButtonVisible}"
+				android:onClick="@{() -> viewBinder.positiveButtonClicked()}"
+				android:text="@{viewBinder.positiveButtonText}"
+				app:visible="@{viewBinder.positiveButtonVisible}"
 				tools:text="Positive Button" />
 		</LinearLayout>
 	</androidx.constraintlayout.widget.ConstraintLayout>

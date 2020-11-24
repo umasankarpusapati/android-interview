@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.png.interview.databinding.FragmentHeroesBinding
+import com.png.interview.databinding.FragmentHeroesDetailBinding
 import com.png.interview.extensions.onMain
 import com.png.interview.extensions.viewLifecycleScope
 import com.png.interview.ui.InjectedFragment
@@ -14,9 +14,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HeroesFragment : InjectedFragment() {
+class HeroDetailFragment : InjectedFragment() {
 
-    @Inject lateinit var fragmentViewBinder: HeroesFragmentViewBinder
+    @Inject lateinit var viewBinder: HeroDetailFragmentViewBinder
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -28,15 +28,15 @@ class HeroesFragment : InjectedFragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        val binding = FragmentHeroesBinding.inflate(inflater, container, false)
-        binding.viewBinder = fragmentViewBinder
+        val binding = FragmentHeroesDetailBinding.inflate(inflater, container, false)
+        binding.viewBinder = viewBinder
         binding.lifecycleOwner = viewLifecycleOwner
 
-        val viewModel = getViewModel<HeroesFragmentViewModel>()
+        val viewModel = getViewModel<HeroDetailFragmentViewModel>()
         viewLifecycleScope.launch(Dispatchers.IO) {
-            viewModel.getHeroes().let {
+            viewModel.getHeroeDetails().let {
                 onMain {
-                    fragmentViewBinder.bind(it)
+                    viewBinder.bind(it)
                 }
             }
         }
@@ -44,7 +44,7 @@ class HeroesFragment : InjectedFragment() {
     }
 
     companion object {
-        fun newInstance() = HeroesFragment()
+        fun newInstance() = HeroDetailFragment()
     }
 
 }

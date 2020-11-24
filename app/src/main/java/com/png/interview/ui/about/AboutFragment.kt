@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class AboutFragment() : Fragment() {
 
-    @Inject lateinit var presenter: AboutPresenter
+    @Inject lateinit var viewBinder: AboutViewBinder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,7 +19,7 @@ class AboutFragment() : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val binding = FragmentAboutBinding.inflate(inflater, container, false)
-        binding.presenter = presenter
+        binding.viewBinder = viewBinder
         return binding.root
     }
 

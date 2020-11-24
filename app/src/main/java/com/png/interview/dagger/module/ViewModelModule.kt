@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.png.interview.dagger.viewmodel.ViewModelFactory
 import com.png.interview.dagger.viewmodel.ViewModelKey
 import com.png.interview.ui.about.AboutViewModel
-import com.png.interview.ui.heroes.HeroesViewModel
+import com.png.interview.ui.heroes.HeroDetailFragmentViewModel
+import com.png.interview.ui.heroes.HeroesFragmentViewModel
 import com.png.interview.ui.maps.MapsViewModel
 import dagger.Binds
 import dagger.Module
@@ -23,8 +24,13 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(HeroesViewModel::class)
-    internal abstract fun heroesViewModel(viewModel: HeroesViewModel): ViewModel
+    @ViewModelKey(HeroesFragmentViewModel::class)
+    internal abstract fun heroesViewModel(viewModel: HeroesFragmentViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HeroDetailFragmentViewModel::class)
+    internal abstract fun heroesDetailsViewModel(viewModel: HeroDetailFragmentViewModel): ViewModel
 
     @Binds
     @IntoMap

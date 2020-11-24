@@ -6,8 +6,8 @@
 	<data>
 
 		<variable
-			name="presenter"
-			type="com.png.interview.ui.heroes.HeroesPresenter" />
+			name="viewBinder"
+			type="com.png.interview.ui.heroes.HeroesFragmentViewBinder" />
 	</data>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -20,9 +20,9 @@
 			android:layout_height="wrap_content"
 			android:paddingTop="16dp"
 			android:clipToPadding="false"
-			app:adapter="@{presenter.adapter}"
+			app:adapter="@{viewBinder.adapter}"
 			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 			app:layout_constraintTop_toTopOf="parent"
-			tools:listitem="@layout/view_hero_item" />
+			tools:listitem="@layout/view_basic_hero_list_item" />
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

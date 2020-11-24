@@ -6,8 +6,8 @@
 	<data>
 
 		<variable
-			name="presenter"
-			type="com.png.interview.ui.heroes.HeroesItemPresenter" />
+			name="viewBinder"
+			type="com.png.interview.ui.heroes.BasicHeroItemViewBinder" />
 	</data>
 
 	<androidx.cardview.widget.CardView
@@ -27,19 +27,19 @@
 				android:id="@+id/hero_image"
 				android:layout_width="92dp"
 				android:layout_height="93dp"
-				android:contentDescription="@{presenter.contentDescription}"
+				android:contentDescription="@{viewBinder.contentDescription}"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
 				app:layout_constraintBottom_toBottomOf="parent"
-				app:coilSrc="@{presenter.imageUrl}"
-				app:coilPlaceholder="@{presenter.placeholder}" />
+				app:coilSrc="@{viewBinder.imageUrl}"
+				app:coilPlaceholder="@{viewBinder.placeholder}" />
 
 			<TextView
 				android:id="@+id/hero_name"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:padding="16dp"
-				android:text="@{presenter.name}"
+				android:text="@{viewBinder.name}"
 				android:textSize="16sp"
 				app:layout_constraintStart_toEndOf="@id/hero_image"
 				app:layout_constraintTop_toTopOf="parent"
