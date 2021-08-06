@@ -5,8 +5,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import androidx.preference.PreferenceManager
-import com.png.interview.api.HotsApiModule
 import com.png.interview.dagger.scope.ApplicationScope
+import com.png.interview.weather.di.WeatherApiModule
+import com.png.interview.weather.di.WeatherUseCaseModule
 
 import dagger.Module
 import dagger.Provides
@@ -15,7 +16,8 @@ import dagger.Provides
     includes = [
         ViewModelModule::class,
         CommonApiModule::class,
-        HotsApiModule::class
+        WeatherApiModule::class,
+        WeatherUseCaseModule::class
     ]
 )
 class AppModule(val application: Application) {

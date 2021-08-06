@@ -3,29 +3,18 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/nav_graph"
-	app:startDestination="@id/heroes_fragment">
+	app:startDestination="@id/current_weather_fragment">
 	<fragment
-		android:id="@+id/heroes_fragment"
-		android:name="com.png.interview.ui.heroes.HeroesFragment"
+		android:id="@+id/current_weather_fragment"
+		android:name="com.png.interview.weather.ui.fragment.CurrentWeatherFragment"
 		android:label="@string/heroes_title"
 		tools:layout="@layout/fragment_heroes">
 		<action
-			android:id="@+id/action_heroes_fragment_to_heroesDetailFragment"
-			app:destination="@id/heroesDetailFragment" />
+			android:id="@+id/action_current_weather_fragment_to_settingsFragment"
+			app:destination="@id/settingsFragment" />
 	</fragment>
 	<fragment
-		android:id="@+id/maps_fragment"
-		android:name="com.png.interview.ui.maps.MapsFragment"
-		android:label="@string/maps_title"
-		tools:layout="@layout/fragment_maps" />
-	<fragment
-		android:id="@+id/about_fragment"
-		android:name="com.png.interview.ui.about.AboutFragment"
-		android:label="@string/about_title"
-		tools:layout="@layout/fragment_about" />
-	<fragment
-		android:id="@+id/heroesDetailFragment"
-		android:name="com.png.interview.ui.heroes.HeroDetailFragment"
-		android:label="HeroesDetailFragment"
-		tools:layout="@layout/fragment_heroes_detail" />
+		android:id="@+id/settingsFragment"
+		android:name="com.png.interview.weather.ui.fragment.SettingsFragment"
+		android:label="SettingsFragment" />
 </navigation>

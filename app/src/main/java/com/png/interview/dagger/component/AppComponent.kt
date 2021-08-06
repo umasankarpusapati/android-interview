@@ -2,10 +2,9 @@ package com.png.interview.dagger.component
 
 import android.content.SharedPreferences
 import com.png.interview.App
-import com.png.interview.dagger.module.AppModule
 import com.png.interview.dagger.module.ActivityModule
+import com.png.interview.dagger.module.AppModule
 import com.png.interview.dagger.scope.ApplicationScope
-import com.png.interview.api.common_model.action.errors.ActionsErrorHandlerFactory
 import dagger.Component
 
 @ApplicationScope
@@ -17,6 +16,4 @@ interface AppComponent {
     fun inject(app: App)
 
     fun providePreferences(): SharedPreferences
-
-    fun provideErrorPresenter(): ActionsErrorHandlerFactory
 }
