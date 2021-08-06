@@ -1,8 +1,5 @@
 <resources>
 	<string name="app_name">Interview Project</string>
-	<string name="heroes_title">Heroes</string>
-	<string name="maps_title">Maps</string>
-	<string name="about_title">About</string>
 	<string name="network_error">Network Error</string>
 	<string name="network_error_retry">Please reconnect to the internet and try again.</string>
 	<string name="unexpected_error_occurred_body">An error has occurred during your operation, please contact support.</string>
