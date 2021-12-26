@@ -1,39 +1,66 @@
 package com.png.interview.weather.ui.binder
 
-import android.app.Activity
-import android.widget.Toast
+import android.text.Editable
+import androidx.databinding.ObservableField
+import com.png.interview.R
 import com.png.interview.weather.ui.viewmodel.CurrentWeatherViewModel
+import com.png.interview.weather.ui.viewmodel.SettingsViewModel
 
 class CurrentWeatherFragmentViewBinder(
     private val viewModel: CurrentWeatherViewModel,
-    private val activity: Activity,
-    private val settingsAction: () -> Unit
+    private val settingsViewModel: SettingsViewModel,
+    private val toastAction: (Int) -> Unit,
+    private val settingsAction: () -> Unit,
+    private val forecastWeatherAction: (String) -> Unit
 ) {
 
+    val input = ObservableField("")
     val availableWeatherViewData = viewModel.availableCurrentWeatherLiveData
-    val isEmpty = viewModel.isEmptyVisible
+    val message = viewModel.message
+    val autocompleteViewData = viewModel.autocompleteLiveData
+    val showAutocomplete = viewModel.autocompleteVisibility
+    val submitSearch: (String) -> Unit = { query -> submitSearch(query) }
 
-    var input: String = ""
+    private var avoidCallingAfterInputTextChanged = true
 
     fun refreshClicked() {
-        Toast.makeText(activity, "Refresh Clicked TODO", Toast.LENGTH_LONG).show()
+        toastAction(R.string.refreshing_climate_data)
+        viewModel.submitCurrentWeatherSearch(settingsViewModel.getInput(), settingsViewModel.getUnits())
     }
 
     fun seeForecastClicked() {
-        Toast.makeText(activity, "Forecast Clicked TODO", Toast.LENGTH_LONG).show()
+        forecastWeatherAction(settingsViewModel.getInput())
     }
 
     fun settingsClicked() {
         settingsAction()
     }
 
-    fun goClicked() {
-        if (input.isEmpty()) {
-            Toast.makeText(activity, "Please Enter Query", Toast.LENGTH_LONG).show()
-        } else if (input.length < 3) {
-            Toast.makeText(activity, "Please Enter More than 3 Characters", Toast.LENGTH_LONG).show()
-        } else {
-            viewModel.submitCurrentWeatherSearch(input)
+    fun afterInputTextChanged(value: Editable) {
+        if (avoidCallingAfterInputTextChanged) {
+            avoidCallingAfterInputTextChanged = false
+            return
         }
+        if (value.length >= 3) {
+            viewModel.submitAutocompleteSearch(input.get() ?: "")
+        } else {
+            viewModel.submitEmptyAutocompleteSearch()
+        }
+    }
+
+    fun goClicked() {
+        val query = input.get() ?: ""
+        when {
+            query.isEmpty() -> toastAction(R.string.please_enter_query)
+            query.length < 3 -> toastAction(R.string.please_enter_more_characters)
+            else -> submitSearch(query)
+        }
+    }
+
+    private fun submitSearch(query: String) {
+        settingsViewModel.saveInput(query)
+        input.set("")
+        viewModel.submitEmptyAutocompleteSearch()
+        viewModel.submitCurrentWeatherSearch(query, settingsViewModel.getUnits())
     }
 }

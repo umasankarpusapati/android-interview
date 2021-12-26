@@ -4,21 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.png.interview.databinding.FragmentCurrentWeatherBinding
 import com.png.interview.ui.InjectedFragment
 import com.png.interview.weather.ui.binder.CurrentWeatherFragmentViewBinder
-import kotlinx.android.synthetic.main.activity_main.mainNavigationFragment
 
 class CurrentWeatherFragment : InjectedFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return FragmentCurrentWeatherBinding.inflate(inflater, container,false).apply {
+        return FragmentCurrentWeatherBinding.inflate(inflater, container, false).apply {
             viewBinder = CurrentWeatherFragmentViewBinder(
                 getViewModel(),
-                requireActivity(),
+                getViewModel(),
+                toastAction = { text ->
+                    Toast.makeText(context, text, Toast.LENGTH_LONG).show()
+                },
                 settingsAction = {
                     findNavController().navigate(CurrentWeatherFragmentDirections.actionCurrentWeatherFragmentToSettingsFragment())
+                },
+                forecastWeatherAction = { input ->
+                    findNavController().navigate(CurrentWeatherFragmentDirections.actionCurrentWeatherFragmentToForecastFragment(input))
                 }
             )
             this.lifecycleOwner = viewLifecycleOwner

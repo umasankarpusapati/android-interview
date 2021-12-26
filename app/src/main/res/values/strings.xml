@@ -24,5 +24,15 @@
 	<string name="imperial">Imperial</string>
 	<string name="metric">Metric</string>
 	<string name="units">Units</string>
-	<string name="name">Name</string>
+	<string name="forecast">Forecast</string>
+	<string name="name">Name:</string>
+	<string name="date">Date:</string>
+	<string name="error_occurred_message">Error occurred retrieving weather information</string>
+	<string name="empty_message" />
+	<string name="refreshing_climate_data">Refreshing Climate Data</string>
+	<string name="please_enter_query">Please Enter Query</string>
+	<string name="please_enter_more_characters">Please Enter More than 3 Characters</string>
+	<string name="min_temp">Min Temperature:</string>
+	<string name="max_temp">Max Temperature:</string>
+	<string name="autocomplete">Autocomplete</string>
 </resources>

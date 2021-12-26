@@ -1,6 +1,8 @@
 package com.png.interview.dagger.module
 
 import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner
@@ -10,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.png.interview.MainActivity
 import com.png.interview.dagger.viewmodel.InjectedViewModelProvider
+import com.png.interview.weather.ui.viewmodel.WEATHER_PREFERENCES
 import dagger.Module
 import dagger.Provides
 import javax.inject.Qualifier
@@ -42,6 +45,11 @@ class ActivityModule(private val appCompatActivity: AppCompatActivity) {
         override fun <T : ViewModel> get(clazz: Class<T>): T {
             return ViewModelProviders.of(appCompatActivity, viewModelFactory)[clazz]
         }
+    }
+
+    @Provides
+    fun provideSharedPreferences(): SharedPreferences {
+        return appCompatActivity.getSharedPreferences(WEATHER_PREFERENCES, Context.MODE_PRIVATE)
     }
 
     @Qualifier
