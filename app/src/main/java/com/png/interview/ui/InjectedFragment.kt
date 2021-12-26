@@ -15,7 +15,8 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 abstract class InjectedFragment : Fragment() {
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var fragmentComponent: FragmentComponent
 
     override fun onAttach(context: Context) {

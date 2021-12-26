@@ -8,7 +8,12 @@ import android.view.View.VISIBLE
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.png.interview.weather.ui.binder.AutocompleteViewAdapter
+import com.png.interview.weather.ui.binder.ForecastWeatherViewAdapter
+import com.png.interview.weather.ui.model.AutocompleteViewData
+import com.png.interview.weather.ui.model.ForecastWeatherViewData
 
 object CommonBindingAdapter {
     @BindingAdapter("visible")
@@ -36,6 +41,22 @@ object CommonBindingAdapter {
                     placeholder(placeholder)
                     error(placeholder)
                 }
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("forecastWeatherViewData")
+    fun setForecastWeatherViewData(view: RecyclerView, forecastWeatherViewData: ForecastWeatherViewData?) {
+        forecastWeatherViewData?.forecastWeatherDataList?.apply {
+            view.adapter = ForecastWeatherViewAdapter(this)
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("autocompleteViewData", "submitSearch")
+    fun setAutocompleteViewData(view: RecyclerView, autocompleteViewData: AutocompleteViewData?, submitSearch: (String) -> Unit) {
+        autocompleteViewData?.autocompleteData?.apply {
+            view.adapter = AutocompleteViewAdapter(this, submitSearch)
         }
     }
 }
